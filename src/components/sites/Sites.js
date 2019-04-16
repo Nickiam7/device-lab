@@ -1,39 +1,56 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+
+import Spinner from '../layout/Spinner'
 
 class Sites extends Component {
+	
+	getBaseURL = (site) => {
+		return 'www.cashnetusa.com'
+	}
+
 	render() {
-		const sites = [
-			{
-				id:  '1',
-				base: 'cashnetusa.com',
-				url: 'https://www.cashnetusa.com/'
-			},
-			{
-				id:  '2',
-				base: 'netcredit.com',
-				url: 'https://www.netcredit.com/-/p/60a72867-ffff-464a-bc23-017decc98998'
-			}
-		]
+		
+		const { sites } = this.props;
+
 		if(sites) {
 			return (
 				<div className="card box-shadow">					
-						<div class="list-group">
+						<div className="list-group list-group-flush">
 						{sites.map(site => (
-							<a href={site.url} class="list-group-item list-group-item-action">
-							  <div class="d-flex w-100 justify-content-between">
-							    <h5 class="mb-1">{site.base}</h5>
+							<a href={site.url} target="_blank" rel="noopener" className="list-group-item list-group-item-action">
+							  <div className="d-flex w-100 justify-content-between">
+							    <h5 className="mb-1">{this.getBaseURL(site.url)}</h5>
 							    <small>3 days ago</small>
 							  </div>
-							  <p class="mb-1">{site.url}</p>							 
+							  <p className="mb-1">{site.url}</p>							 
 							</a>
 						))}
 					</div>
 				</div>
 			)
 		} else {
-			return <h1>Loading...</h1> 
+			return <Spinner />
 		}
 	}
 }
 
-export default Sites;
+Sites.propTypes = {
+	firestore: PropTypes.object.isRequired,
+	sites: PropTypes.array
+}
+
+export default compose(
+	firestoreConnect([{ collection: 'sites'}]),
+	connect((state, props) => ({
+		sites: state.firestore.ordered.sites
+	}))
+)(Sites)
+
+
+
+
+
