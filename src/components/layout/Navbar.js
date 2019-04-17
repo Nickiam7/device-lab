@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import AddSite from '../sites/AddSite'
+
 class Navbar extends Component {
 	render() {
 		return (
@@ -19,15 +21,10 @@ class Navbar extends Component {
 					<div className="collapse navbar-collapse" id="navbarMain">
 						<ul className="navbar-nav ml-auto">
 							<li className="nav-item">
-								<Link to="/" className="nav-link">
-									<i className="fas fa-sync" />
-								</Link>
-							</li>
-							<li className="nav-item">
-								<Link to="/sites/new" className="nav-link">
-									<i className="fas fa-plus" />  Add Site
-								</Link>
-							</li>
+								<Link to="/site/new" className="nav-link">
+									<i className="fas fa-plus" /> New
+								</Link>								
+							</li>							
 						</ul>
 					</div>
 				</div>
@@ -36,4 +33,4 @@ class Navbar extends Component {
 	}
 }
 
-export default Navbar;
+export default Navbar

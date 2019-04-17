@@ -6,6 +6,7 @@ import store from './store'
 
 import Navbar from './components/layout/Navbar'
 import SiteListContainer from './components/layout/SiteListContainer'
+import AddSite from './components/sites/AddSite'
 
 import './App.css';
 
@@ -19,6 +20,7 @@ class App extends Component {
 					<div className="container">
 						<Switch>
 							<Route exact path="/" component={SiteListContainer} />
+							<Route exact path="/site/new" component={AddSite} />
 						</Switch>
 		      </div>
 	      </div>

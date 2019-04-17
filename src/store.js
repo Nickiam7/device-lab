@@ -39,4 +39,4 @@ const store = createStoreWithFirebase(rootReducer, initialState, compose(
 	)
 )
 
-export default store;
+export default store
