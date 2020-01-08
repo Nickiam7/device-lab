@@ -21,18 +21,17 @@ class Sites extends Component {
 
 	render() {
 		const { sites } = this.props
-
 		if(sites) {
 			return (
 				<div className="card box-shadow">					
-						<div className="list-group list-group-flush">
+					<div className="list-group list-group-flush">
 						{sites.map(site => (
 							<a href={site.url} key={site.id} target="_blank" rel="noopener" className="list-group-item list-group-item-action">
-							  <div className="d-flex w-100 justify-content-between">
-							    <h5 className="mb-1">{site.title ? site.title : this.getBaseURL(site.url)}</h5>
-							    <small>{this.getFormattedDate(site)}</small>
-							  </div>
-							  <p className="mb-1">{site.url}</p>							 
+								<div className="d-flex w-100 justify-content-between">
+									<h5 className="mb-1">{site.title ? site.title : this.getBaseURL(site.url)}</h5>
+									<small>{this.getFormattedDate(site)}</small>
+								</div>
+								<p className="mb-1">{site.url}</p>							 
 							</a>
 						))}
 					</div>
@@ -42,10 +41,6 @@ class Sites extends Component {
 			return <Spinner />
 		}
 	}
-}
-
-const borderStyle = {
-	borderLeft: '2px solid red'
 }
 
 Sites.propTypes = {

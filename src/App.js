@@ -11,23 +11,23 @@ import AddSite from './components/sites/AddSite'
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-    	<Provider store={store}>
-    	<Router basename={process.env.PUBLIC_URL}>
-	      <div className="App">
-					<Navbar />
-					<div className="container">
-						<Switch>
-							<Route exact path="/" component={SiteListContainer} />
-							<Route exact path="/site/new" component={AddSite} />
-						</Switch>
-		      </div>
-	      </div>
-      </Router>
-      </Provider>
-    );
-  }
+	render() {
+		return (
+			<Provider store={store}>
+				<Router basename={process.env.PUBLIC_URL}>
+					<div className="App">
+						<Navbar />
+						<div className="container">
+							<Switch>
+								<Route exact path="/" component={SiteListContainer} />
+								<Route exact path="/site/new" component={AddSite} />
+							</Switch>
+						</div>
+					</div>
+				</Router>
+			</Provider>
+		);
+	}
 }
 
 export default App;

@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-
-import AddSite from '../sites/AddSite'
 
 import Logo from '../../device_lab_logo--white.png'
 
